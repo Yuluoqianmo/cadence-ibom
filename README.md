@@ -3,6 +3,43 @@
 `cadence-ibom` 是一个面向 `Cadence / Allegro` 的本地交互式 BOM 工具。  
 它读取 `BOM`、`IPC-2581` 和可选 `Placement`，生成可离线打开的单文件 `HTML` 页面，用于器件定位、装配辅助、返修查找和物料核对。
 
+## 同事下载入口
+
+如果你只是想直接使用工具，不需要看源码，请不要下载仓库里的 `.py`、`.json`、`.spec` 文件。  
+请直接进入 Release 页面下载压缩包：
+
+- [v1.2.0 Release](https://github.com/Yuluoqianmo/cadence-ibom/releases/tag/v1.2.0)
+
+推荐下载：
+
+- `cadence-ibom-v1.2.0-delivery.zip`
+  - 推荐第一次使用下载这个
+  - 包含可执行版、使用说明、示例输出、输入文件目录
+
+- `cadence-ibom-v1.2.0-exe-only.zip`
+  - 只包含程序本体
+  - 适合已经熟悉工具、只想拿到最小运行包的人
+
+最简使用步骤：
+
+1. 下载并解压 `cadence-ibom-v1.2.0-delivery.zip`
+2. 双击运行 `CadenceInteractiveBOM.exe`
+3. 选择：
+   - `BOM.xlsx`
+   - `IPC-2581.xml`
+4. 点击 `检查输入`
+5. 点击 `生成 HTML`
+
+输入文件最少需要：
+
+- `BOM.xlsx`
+- `IPC-2581.xml`
+
+说明：
+
+- 普通同事只需要看 Release 和压缩包，不需要看下面的源码说明
+- 如果你是开发者，下面的内容才和你有关
+
 ## 特性
 
 - 支持 `BOM xlsx/csv/tsv/txt`
@@ -20,6 +57,8 @@
 - 自动生成 `inspect / report / error log`
 
 ## 仓库结构
+
+以下内容主要给开发或维护工具的人看：
 
 - `generate_ibom.py`
   主生成脚本

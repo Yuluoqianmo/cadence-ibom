@@ -1,5 +1,14 @@
 # Cadence Interactive BOM v1.2.0 下载与使用说明
 
+## 先看这个
+
+如果你是第一次打开 GitHub，不知道该下载哪个文件，直接下载：
+
+- `cadence-ibom-v1.2.0-delivery.zip`
+
+这个就是给同事直接使用的完整包。  
+下载后解压，双击 `CadenceInteractiveBOM.exe` 就可以。
+
 ## 推荐下载
 
 如果你只是想直接使用工具，不需要看源码，建议下载以下文件之一：
