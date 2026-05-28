@@ -1,9 +1,25 @@
 # cadence-ibom
 
-一个面向 `Cadence / Allegro` 的本地交互式 BOM 工具源码仓库。  
-工具读取 `BOM`、`IPC-2581` 和可选 `Placement`，生成一个可离线打开的单文件 `HTML` 页面，用于器件定位、装配辅助、返修查找和物料核对。
+`cadence-ibom` 是一个面向 `Cadence / Allegro` 的本地交互式 BOM 工具。  
+它读取 `BOM`、`IPC-2581` 和可选 `Placement`，生成可离线打开的单文件 `HTML` 页面，用于器件定位、装配辅助、返修查找和物料核对。
 
-## 仓库内容
+## 特性
+
+- 支持 `BOM xlsx/csv/tsv/txt`
+- 支持 `IPC-2581 xml`
+- 可选支持 `Placement htm/html/xlsx/csv/tsv/txt`
+- 支持中文/英文表头识别
+- 支持外置字段映射配置
+- 从 `IPC-2581` 读取器件坐标、封装几何和板框
+- 左侧 BOM 与右侧视图双向联动
+- 点击右侧器件反定位左侧 BOM
+- 支持搜索、状态筛选、完成标记
+- 支持滚轮缩放、拖动画布、复位视图
+- 支持 `仅当前 BOM` 视图
+- 支持导出当前结果到 `CSV / XLSX`
+- 自动生成 `inspect / report / error log`
+
+## 仓库结构
 
 - `generate_ibom.py`
   主生成脚本
@@ -16,25 +32,7 @@
 - `samples/`
   轻量示例输入
 
-## 核心能力
-
-- 导入 `BOM xlsx/csv/tsv/txt`
-- 导入 `IPC-2581 xml`
-- 可选导入 `Placement htm/html/xlsx/csv/tsv/txt`
-- 中文/英文表头识别
-- 字段映射外置配置
-- 从 `IPC-2581` 读取器件坐标、封装几何和板框
-- 左侧 BOM 与右侧视图双向联动
-- 点击右侧器件反定位左侧 BOM
-- 鼠标悬停器件显示 `RefDes / 值 / 型号 / 封装`
-- `仅当前 BOM` 视图
-- 搜索、状态筛选、完成标记
-- 滚轮缩放、拖动画布、复位视图
-- 导出 `CSV`
-- 导出 `XLSX`
-- 自动生成 `inspect / report / error log`
-
-## 运行方式
+## 快速开始
 
 ### 脚本版
 
@@ -61,22 +59,9 @@ python .\generate_ibom.py --bom .\samples\bom.tsv --placement .\samples\placemen
 pyinstaller .\CadenceInteractiveBOM.spec
 ```
 
-打包输出目录：
+输出目录：
 
 - `dist/CadenceInteractiveBOM/`
-
-## 字段映射
-
-字段映射定义在：
-
-- `field_mapping.json`
-
-包含两类配置：
-
-- `bom_aliases`
-- `placement_aliases`
-
-如果公司内部 BOM 表头有变化，优先修改这个文件，不需要直接改 Python 代码。
 
 ## 输入文件
 
@@ -93,6 +78,19 @@ pyinstaller .\CadenceInteractiveBOM.spec
 
 - 如果 `IPC-2581` 已包含完整器件坐标，则 `Placement` 可不提供
 - 当前主流程以纯几何显示为主，不依赖板图
+
+## 字段映射
+
+字段映射文件：
+
+- `field_mapping.json`
+
+包含两类配置：
+
+- `bom_aliases`
+- `placement_aliases`
+
+如果公司内部 BOM 表头有变化，优先修改这个文件，不需要直接改 Python 代码。
 
 ## 生成结果
 
